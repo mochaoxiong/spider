@@ -50,7 +50,7 @@ class JdSpider(scrapy.Spider):
                 callback=self.parse_book_price,
                 meta={"item":deepcopy(item)}  #深度复制使得各个循环独立
             )
-        #列表页翻页
+        #列表页的翻页
         next_url=response.xpath("//a[@class='pn-next']/@href").extract_first()
         if next_url is not None:
             #构造完整的下一页url
